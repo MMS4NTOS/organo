@@ -1,0 +1,18 @@
+.time { 
+    text-align: center;
+    padding: 32px;
+ 
+}
+
+.time h3 {
+    font-size: 2rem;
+    padding-bottom: .5rem;
+    border-bottom: .25rem solid;
+    display: inline-block;
+}
+.membros {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
