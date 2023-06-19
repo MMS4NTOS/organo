@@ -53,6 +53,14 @@ const aoMembroAdicionado = (membro) => {
   
 }
 
+const aoRemover = (nome) => {
+  const arr = membros.filter(membro => membro.nome !== nome)
+  setMembros(arr)
+  localStorage.setItem("Membros", JSON.stringify(arr));
+}
+
+
+
   return (
     <div className="App">
       <Banner />
@@ -64,7 +72,9 @@ const aoMembroAdicionado = (membro) => {
           corPrimaria={time.corPrimaria} 
           corSecundaria={time.corSecundaria}
           membros={membros.filter(membro => membro.time === time.nome)}
-          />)}
+          aoRemover={nome => aoRemover(nome)}
+          />)
+          }
           <Rodape />
     </div>
   );

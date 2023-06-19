@@ -1,10 +1,11 @@
 import './Membro.css'
 
-const Membro = ({nome, imagem, cargo, corFundo}) => {
+const Membro = ({nome, imagem, cargo, corFundo, removeMembro}) => {
 
   const excluirMembro = (nome) => {
-    console.log(nome)
+    removeMembro(nome)
   }
+  
     return (
       <div className="membro">
         <div className="cabecalho" style={{backgroundColor: corFundo}}>
