@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.membro .cabecalho button {
+.botao-deletar {
     position: absolute;
     font-size: 1rem;
     right: 0.5rem;
@@ -21,7 +21,7 @@
     border: none;
 }
 
-.membro button:hover {
+.botao-deletar:hover {
     transform: scale(1.5);
     transition: 1s;
 }

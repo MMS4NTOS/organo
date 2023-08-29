@@ -3,49 +3,45 @@ import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 import Rodape from './componentes/Rodape';
+import { v4 as uuidv4 } from "uuid";
 
 
 function App(props) {
 
 const [membros, setMembros] = useState(JSON.parse(localStorage.getItem("Membros")) || []);
 
-const times = [
+const [times, setTimes] = useState([
   {
-    nome: "Time um",
-    corPrimaria: "#57C278",
-    corSecundaria: "#D9F7E9",
-  },
-  {
+    id: uuidv4(),
     nome: "Time dois",
-    corPrimaria: "#82CFFA",
-    corSecundaria: "#E8F8FF",
+    cor: "#E8F8FF",
   },
   {
+    id: uuidv4(),
     nome: "Time três",
-    corPrimaria: "#A6D157",
-    corSecundaria: "#F0F8E2",
+    cor: "#F0F8E2",
   },
   {
+    id: uuidv4(),
     nome: "Time quatro",
-    corPrimaria: "#E06B69",
-    corSecundaria: "#FDE7E8",
+    cor: "#FDE7E8",
   },
   {
+    id: uuidv4(),
     nome: "Time cinco",
-    corPrimaria: "#DB6EBF",
-    corSecundaria: "#FAE9F5",
+    cor: "#FAE9F5",
   },
   {
+    id: uuidv4(),
     nome: "Time seis",
-    corPrimaria: "#FFBA05",
-    corSecundaria: "#FFF5D9",
+    cor: "#FFF5D9",
   },
   {
+    id: uuidv4(),
     nome: "Time sete",
-    corPrimaria: "#FF8A29",
-    corSecundaria: "#FFEEDF",
+    cor: "#FFEEDF",
   },
-];
+]);
 
 const aoMembroAdicionado = (membro) => {
   setMembros(prev => [...prev, membro]);
@@ -59,7 +55,16 @@ const aoRemover = (nome) => {
   localStorage.setItem("Membros", JSON.stringify(arr));
 }
 
-
+function mudaCorTime(cor, id) {
+  setTimes( 
+    times.map(time => {
+      if (time.id === id) {
+        time.cor = cor
+      }
+      return time
+    }
+  ))
+}
 
   return (
     <div className="App">
@@ -67,10 +72,12 @@ const aoRemover = (nome) => {
       <Formulario times={times.map(time => time.nome)} aoAdicionar={(membro) => aoMembroAdicionado(membro)} />
       {times.map(time => 
       <Time 
-          key={time.nome} 
-          nome={time.nome} 
+          key={uuidv4()} 
+          nome={time.nome}
+          id={time.id}
+          mudarCor = {(cor, id) => mudaCorTime(cor, id)} 
           corPrimaria={time.corPrimaria} 
-          corSecundaria={time.corSecundaria}
+          cor={time.cor}
           membros={membros.filter(membro => membro.time === time.nome)}
           aoRemover={nome => aoRemover(nome)}
           />)

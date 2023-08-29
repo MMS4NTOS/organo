@@ -1,3 +1,4 @@
+import {AiFillCloseCircle} from 'react-icons/ai'
 import './Membro.css'
 
 const Membro = ({nome, imagem, cargo, corFundo, removeMembro}) => {
@@ -10,7 +11,7 @@ const Membro = ({nome, imagem, cargo, corFundo, removeMembro}) => {
       <div className="membro">
         <div className="cabecalho" style={{backgroundColor: corFundo}}>
           <img src={imagem} alt={nome} />
-          <button onClick={() => excluirMembro(nome)}>X</button>
+          <AiFillCloseCircle  className="botao-deletar" size={25} onClick={() => excluirMembro(nome)}/>
         </div>
         <div className="membro_rodape">
           <h4>{nome}</h4>
