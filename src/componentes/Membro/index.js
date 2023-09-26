@@ -1,5 +1,4 @@
 import { AiFillCloseCircle, AiFillStar, AiOutlineStar } from "react-icons/ai";
-import { useState } from "react";
 import './Membro.css'
 
 const Membro = ({nome, imagem, cargo, corFundo, removeMembro, id, aoFavoritar, favorito}) => {

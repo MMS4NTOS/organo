@@ -5,14 +5,6 @@ import Time from './componentes/Time';
 import Rodape from './componentes/Rodape';
 import { v4 as uuidv4 } from "uuid";
 
-import { useState } from 'react';
-import Banner from './componentes/Banner';
-import Formulario from './componentes/Formulario';
-import Time from './componentes/Time';
-import Rodape from './componentes/Rodape';
-import { v4 as uuidv4 } from "uuid";
-
-
 function App() {
 
 const [membros, setMembros] = useState(JSON.parse(localStorage.getItem("Membros")) || []);
