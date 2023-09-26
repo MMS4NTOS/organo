@@ -7,12 +7,7 @@ const Membro = ({nome, imagem, cargo, corFundo, removeMembro, id, aoFavoritar, f
   const excluirMembro = (id) => {
     removeMembro(id)
   }
-
-  // let [favorito, setFavorito] = useState(
-  //   JSON.parse(localStorage.getItem(JSON.stringify(id)) || false
-  // ));
   
-  // localStorage.setItem(JSON.stringify(id), favorito);
   function favoritar() {
     aoFavoritar(id);
   }
