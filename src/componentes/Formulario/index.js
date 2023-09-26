@@ -44,7 +44,7 @@ const Formulario = (props) => {
           <Campo
             obrigatorio={true}
             label="Nome"
-            placeholder="Digite o nome do time"
+            placeholder="o nome do time"
             type="text"
             valor={novoTime}
             aoAlterado={(valor) => setNovoTime(valor)}
