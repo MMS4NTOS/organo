@@ -1,0 +1,26 @@
+.campo {
+    margin: 1.5rem 0;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.campo input {
+    background-color: #FFF;
+    box-shadow: 0.625rem 0.625rem 1.875rem rgba(0, 0, 0.06);
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+
+.campo-color input {
+    padding: 0.4rem 1.5rem;
+    height: 2.4rem;
+}
