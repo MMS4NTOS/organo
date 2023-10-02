@@ -12,6 +12,8 @@ const [membros, setMembros] = useState(JSON.parse(localStorage.getItem("Membros"
 const [times, setTimes] = useState(
   JSON.parse(localStorage.getItem("Times")) || []);
 
+const [form, setForm] = useState(true)
+
 const aoMembroAdicionado = (membro) => {
   setMembros(prev => [...prev, membro]);
   localStorage.setItem("Membros", JSON.stringify([...membros, membro]));
@@ -45,6 +47,7 @@ function resolverFavorito(id) {
       if(membro.id === id) {
       membro.favorito = !membro.favorito
     }
+    localStorage.setItem("Membros", JSON.stringify(membros));
     return membro }
   ))
 }
@@ -52,15 +55,21 @@ function resolverFavorito(id) {
  return (
    <div className="App">
      <Banner />
-     <Formulario
-       times={times.map((time) => time.nome)}
-       aoAdicionar={(membro) => aoMembroAdicionado(membro)}
-       adicionarTime={adicionarTime}
-     />
-   
-       {times.map((time) => 
-        { const key = time.id;
-        return (
+     {form ? (
+       <Formulario
+         times={times.map((time) => time.nome)}
+         aoAdicionar={(membro) => aoMembroAdicionado(membro)}
+         adicionarTime={adicionarTime}
+       />
+     ) : (
+       ""
+     )}
+     <div className='titulo'>
+       <h2> Minha organização: </h2> <button onClick={() => setForm(!form)}> { form ? 'Esconder formulário' : 'Mostrar formulário'} </button>
+     </div>
+     {times.map((time) => {
+       const key = time.id;
+       return (
          <Time
            key={key}
            time={time}
@@ -68,9 +77,9 @@ function resolverFavorito(id) {
            membros={membros.filter((membro) => membro.time === time.nome)}
            aoFavoritar={resolverFavorito}
            aoRemover={(id) => aoRemover(id)}
-         /> 
-        )
-        })}
+         />
+       );
+     })}
      <Rodape />
    </div>
  );

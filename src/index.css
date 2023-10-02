@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+}
+
+
+.titulo h2 {
+    font-size: 2rem;
+    padding-bottom: .5rem;
+    border-bottom: .25rem solid;
+    display: inline-block;
+    
+}
+
+.titulo button {
+    position: absolute;
+    right: 5rem;
+    top: 3rem;
+    background-color: #6278f7;
+    border-radius: 0.625rem;
+    border: none; 
+    cursor: pointer;
+    color: #FFF;
+    padding: 0.6rem;
+}
